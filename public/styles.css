@@ -1,0 +1,133 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    transform: translateY(-1px);
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+#logoutBtn {
+    margin-left: 1rem;
+}
+
+
+/* 3D 효과를 위한 원근감 설정 */
+.card-container {
+    perspective: 1000px;  /* 3D 효과의 깊이감 설정 */
+    width: 300px;
+    height: 420px;
+    margin: 20px;
+}
+
+/* 포켓몬 카드의 기본 스타일 */
+.pokemon-card {
+    position: relative;  /* 자식 요소들의 기준점 */
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;  /* 3D 변환 스타일 유지 */
+    transition: transform 0.8s;  /* 회전 애니메이션 시간 설정 */
+    cursor: pointer;
+}
+
+/* 카드가 뒤집힐 때의 스타일 */
+.pokemon-card.flipped {
+    transform: rotateY(180deg);  /* Y축을 기준으로 180도 회전 */
+}
+
+/* 카드의 앞면과 뒷면 공통 스타일 */
+.card-front, .card-back {
+    position: absolute;  /* 카드 내 절대 위치 */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;  /* 뒷면 숨김 처리 */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 10px solid #ffd700;  /* 금색 테두리 */
+}
+
+/* 카드 앞면 스타일 */
+.card-front {
+    background: linear-gradient(45deg, #ffd700, #ffa500);  /* 그라데이션 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 카드 뒷면 스타일 */
+.card-back {
+    background: white;
+    transform: rotateY(180deg);  /* 처음부터 뒤집어진 상태 */
+    padding: 20px;
+}
+
+/* 채팅창 스타일 */
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.chat-message strong {
+    color: #0d6efd;
+}
+
+.chat-message small {
+    color: #6c757d;
+    margin-left: 10px;
+    font-size: 0.8em;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 576px) {
+    .card-container {
+        width: 280px;
+        height: 400px;
+    }
+}
